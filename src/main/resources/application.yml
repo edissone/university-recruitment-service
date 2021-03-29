@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: recruitment-service
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  datasource:
+    url: jdbc:mysql://localhost:3402/recruitment_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: recr_user
+    password: recr_pwd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  flyway:
+    baseline-on-migrate: false
+    enabled: true
+    url: ${spring.datasource.url}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
