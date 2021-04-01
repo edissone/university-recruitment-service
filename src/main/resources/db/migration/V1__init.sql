@@ -21,8 +21,7 @@ create table enrollee
 
 create table chosen_specialty
 (
-    cs_id         bigint auto_increment primary key,
-    enrollee_id   bigint      not null,
+    enrollee_id   bigint,
     specialty_uid varchar(56) not null,
     constraint enrollee
         foreign key (enrollee_id) references enrollee (enrollee_id)
