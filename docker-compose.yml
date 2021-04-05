@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  recruitment-mysqldb:
+    image: mysql:5.7
+    container_name: recruitment-mysqldb
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - recruitment-mysqldb-volume:/var/lib/mysql
+      - ./mysql.cnf:/etc/mysql/conf.d/custom.cnf
+    environment:
+      MYSQL_DATABASE: recruitment_db
+      MYSQL_USER: recr_user
+      MYSQL_PASSWORD: recr_pwd
+      MYSQL_ROOT_PASSWORD: recr_pwd
+    ports:
+      - 3402:3306
+
+
+volumes:
+  recruitment-mysqldb-volume:
